@@ -4,6 +4,6 @@
 		<title>PALASO</title>
 	</head>
 	<body>
-		<p>Cette fois c'est du sérieux donc Amandine pas de conneries !</p>
+		<p>BootStrap pour le CSS</p>
 	</body>
 </html>
