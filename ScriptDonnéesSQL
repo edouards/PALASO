@@ -1,7 +1,7 @@
 USE palaso;
 
 INSERT INTO LOGIN(log_log, log_pwd)
-  VALUES ('administrateur', 'admin000'),
+	VALUES ('administrateur', 'admin000'),
 	VALUES ('secretariat', '12345678'),
 	VALUES ('employe1', '12345678'),
 	VALUES ('employe2', '12345678'),
