@@ -24,9 +24,9 @@ INSERT INTO CIVILITES(civ_code, civ_libelle)
 INSERT INTO CIVILITES(civ_code, civ_libelle)
 	VALUES ('Mr', 'Monsieur');
 
-INSERT INTO ENTREPRISE(entr_siret, ent_raisonsociale, ent_adresse1, ent_adresse2, ent_CP, ent_ville, ent_telephone, ent_fax, ent_mail, ent_login)
+INSERT INTO ENTREPRISE(ent_siret, ent_raisonsociale, ent_adresse1, ent_adresse2, ent_CP, ent_ville, ent_telephone, ent_fax, ent_mail, ent_login)
 	VALUES ('12345678912345', 'Ford', '9 rue Imaginaire', 'Impasse B', '33000', 'Bordeaux', '0568635458', '0568635459', 'ford@fake.com', 7);
-INSERT INTO ENTREPRISE(entr_siret, ent_raisonsociale, ent_adresse1, ent_adresse2, ent_CP, ent_ville, ent_telephone, ent_fax, ent_mail, ent_login)
+INSERT INTO ENTREPRISE(ent_siret, ent_raisonsociale, ent_adresse1, ent_adresse2, ent_CP, ent_ville, ent_telephone, ent_fax, ent_mail, ent_login)
 	VALUES ('98765432103214', 'Apple', '7 avenue Bastille', 'Rez de chaussée', '33000', 'Bordeaux', '0512245687', NULL , 'apple@fake.com', 8);
 
 INSERT INTO FONCTION(fct_code, fct_libelle)
@@ -105,5 +105,5 @@ INSERT INTO DOSSIER(dos_date, dos_chemin, dos_interimaire, dos_document)
 INSERT INTO CONTRAT_DE_MISSION(cdm_date, cdm_dateDebut, cdm_dossier, cdm_offre)
 	VALUES ('2012-11-30', '2012-12-01', '1', '1' );
 
-INSERT INTO CDD(cdd_type, cdd_dureeMois)
-	VALUES ('CDD', '2');
+INSERT INTO CDD(cdd_id, cdd_type, cdd_dureeMois)
+	VALUES ('1','CDD', '2');

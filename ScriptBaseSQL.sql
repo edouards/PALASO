@@ -19,10 +19,10 @@ CREATE TABLE CIVILITES(
 
 CREATE TABLE ENTREPRISE( 
 	ent_id INT NOT NULL auto_increment, 
-	entr_siret VARCHAR(14) NOT NULL, 
+	ent_siret VARCHAR(14) NOT NULL, 
 	ent_raisonsociale VARCHAR(65) NOT NULL, 
 	ent_adresse1 VARCHAR(45) NOT NULL, 
-	ent_adresse2 VARCHAR(45), 
+	ent_adresse2 VARCHAR(45),
 	ent_CP VARCHAR(5) NOT NULL, 
 	ent_ville VARCHAR(45) NOT NULL, 
 	ent_telephone VARCHAR(10) NOT NULL, 
@@ -65,19 +65,18 @@ CREATE TABLE METIER(
 )Engine=InnoDB;
 
 CREATE TABLE EXPERIENCE(
-	exp_id INT NOT NULL,
+	exp_id INT NOT NULL auto_increment,
 	exp_code VARCHAR(2) NOT NULL,
 	exp_libelle VARCHAR(25) NOT NULL,
 	CONSTRAINT PK_EXP PRIMARY KEY (exp_id)
 )Engine=InnoDB;
 
 CREATE TABLE DIPLOME(
-	dip_id INT NOT NULL,
+	dip_id INT NOT NULL auto_increment,
 	dip_code VARCHAR(10) NOT NULL,
 	dip_libelle VARCHAR(45) NOT NULL,
 	CONSTRAINT PK_DIPLOME PRIMARY KEY (dip_id)
 )Engine=InnoDB;
-
 
 CREATE TABLE MOTIF_DE_RECOURS(
 	mot_id INT NOT NULL auto_increment,
