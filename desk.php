@@ -7,6 +7,7 @@
 		<meta charset="UTF-8"/>
 	</head>
 	<body>
+	<?php include("header.php"); ?>
 		<div class="container">
 			<div class="tabbable tabs-left">
 				<ul class="nav nav-tabs">

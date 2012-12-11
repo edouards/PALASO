@@ -21,7 +21,7 @@
 					<button class="btn btn-large" type="button">Espace candidats</button>
 				</a>
 					
-				<a href="loginEntrerise.php">
+				<a href="loginEntreprise.php">
 					<button class="btn btn-large" type="button">Espace entreprises</button>
 				</a>
 			</ul>					
