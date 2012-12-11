@@ -1,32 +1,32 @@
- <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
- <?php
-			$users=array(
-				'nom'=>array('PALLAS','LARRUE','SOUAN'),
-				'prenom'=>array('Amandine','Florent','Edouard')
-				);
-		?>
-<div class="container">
-	<div class="span3">
-	  <table class="table table-hover table-bordered">
-		<thead>
-			<tr>
-				<th>Nom</th>
-				<th>Prenom</th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php
-			foreach($users['nom'] as $key=>$nom)
-			{
-		?>
-				<tr>
-					<td><?php echo($nom);?></td>
-					<td><?php echo($users['prenom'][$key]);?></td>
-				</tr>
-		<?php
-			}
-		?>
-		<tbody>
-	  </table>
-	</div>
-</div>
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" language="javascript" src="jquery/jquery.js"></script>
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<meta charset="UTF-8"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="tabbable tabs-left">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#interimaires" data-toggle="tab">Intérimaires</a></li>
+					<li><a href="#entreprises" data-toggle="tab">Entreprises</a></li>
+					<li><a href="#offres" data-toggle="tab">Offres</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="interimaires">
+					  <p> <?php require_once('tabinterim.php'); ?></p>
+					</div>
+					<div class="tab-pane" id="entreprises">
+					 <p> <?php require_once('tabentreprise.php'); ?></p>
+					</div>
+					<div class="tab-pane" id="offres">
+					  <p>What up girl, this is Section C.</p>
+					</div>
+				</div>
+			</div> <!-- /tabbable -->
+		</div>
+		
+	</body>
+</html>
