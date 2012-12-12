@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8"/>
 		<script type="text/javascript" language="javascript" src="jquery/jquery.js"></script>
 		<link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<meta charset="UTF-8"/>
+		<link href="style.css" rel="stylesheet">
+		
 	</head>
 	<body>
-	<?php include("header.php"); ?>
+		<?php include("header.php"); ?>
 		<div class="container">
 			<div class="tabbable tabs-left">
+
 				<ul class="nav nav-tabs">
 					<li class="active"><a href="#interimaires" data-toggle="tab">Intérimaires</a></li>
 					<li><a href="#entreprises" data-toggle="tab">Entreprises</a></li>
@@ -27,7 +30,7 @@
 					</div>
 				</div>
 			</div> <!-- /tabbable -->
+			<?php include('pdp.php'); ?>
 		</div>
-		
 	</body>
 </html>

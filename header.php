@@ -1,6 +1,5 @@
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"">
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<meta charset="iso-8859-1"/>
 	
 <div class="media">
   <a class="pull-right" href="# 	">
@@ -19,7 +18,7 @@
 
 <div class="hero-unit">
   <h1>PALASO</h1>
-  <p>Agence intérim spécialiste de l'informatique</p>
+  <p>Agence d'intérim spécialiste de l'informatique</p>
   <p>
     <a class="btn btn-primary btn-large">
       En savoir plus
