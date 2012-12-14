@@ -1,4 +1,4 @@
-<div class="span9">
+<div class="span12">
   <table class="table table-hover table-bordered">
 	<thead>
 		<tr>
@@ -17,7 +17,7 @@
 		$ent=$connexion->query("SELECT * FROM ENTREPRISE ORDER BY ent_raisonsociale ASC");
 		$ent->setFetchMode(PDO::FETCH_OBJ);
 		while($entreprise = $ent->fetch())
-		{
+		{ 
 	?>
 			<tr>
 				<td><?php echo $entreprise->ent_siret; ?></td>
@@ -31,6 +31,6 @@
 		}
 		$ent->closeCursor();
 	?>
-	<tbody>
+	</tbody>
   </table>
 </div>

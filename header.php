@@ -18,7 +18,7 @@
 
 <div class="hero-unit">
   <h1>PALASO</h1>
-  <p>Agence d'intérim spécialiste de l'informatique</p>
+  <p>Agence d'int&eacute;rim sp&eacute;cialiste de l'informatique</p>
   <p>
     <a class="btn btn-primary btn-large">
       En savoir plus

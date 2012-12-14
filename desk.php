@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<?php include("header.php"); ?>
-		<div class="container">
+		
 			<div class="tabbable tabs-left">
 
 				<ul class="nav nav-tabs">
@@ -26,11 +26,11 @@
 					 <p> <?php require_once('tabentreprise.php'); ?></p>
 					</div>
 					<div class="tab-pane" id="offres">
-					  <p>What up girl, this is Section C.</p>
+					  <p><?php include('taboffre.php'); ?></p>
 					</div>
 				</div>
 			</div> <!-- /tabbable -->
 			<?php include('pdp.php'); ?>
-		</div>
+		
 	</body>
 </html>

@@ -1,4 +1,4 @@
-<div class="span9">
+<div class="span12">
   <table class="table table-hover table-bordered">
 	<thead>
 		<tr>
@@ -50,6 +50,6 @@
 		$met->closeCursor();
 		$interim->closeCursor();
 	?>
-	<tbody>
+	</tbody>
   </table>
 </div>

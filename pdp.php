@@ -6,7 +6,7 @@
 	<div class="navlist">
 		<ul class="nav nav-pills">
 		<li><a href="main.php">Accueil</a></li>
-		<li><a href="#">Mention légales</a></li>
+		<li><a href="#">Mention l&eacute;gales</a></li>
 		<li><a href="#">Contactez-nous</a></li>
 		</ul>
 	</div>
