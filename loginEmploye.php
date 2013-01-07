@@ -9,7 +9,7 @@
 		{
 			if(isset($_POST['passwd']) AND $_POST['passwd']==$login->log_pwd)
 			{
-				HEADER("location:./desk.php");
+				HEADER("location:./desk.php?p=interim");
 			}
 		}
 	}

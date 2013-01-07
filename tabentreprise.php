@@ -1,4 +1,3 @@
-<div class="span12">
   <table class="table table-hover table-bordered">
 	<thead>
 		<tr>
@@ -33,4 +32,3 @@
 	?>
 	</tbody>
   </table>
-</div>

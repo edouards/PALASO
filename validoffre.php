@@ -1,3 +1,29 @@
+  <!-- Fonctions de validation et de suppression des offres-->
+ <?php
+ 	
+ 	function Validation($offre_numero)
+ 	{
+ 		if(isset($offre_numero))
+ 		{
+	 		include("connexion.php");
+	 		$connexion->exec("UPDATE OFFRE SET off_valid=1 WHERE off_numero=".$offre_numero);
+ 		}
+ 	}
+
+ 	function Suppression($offre_numero,$ent_mail)
+ 	{
+ 		if(isset($offre_numero) && isset($ent_mail))
+ 		{
+ 			include("connexion.php");
+
+ 			$connexion->exec("DELETE FROM OFFRE WHERE off_numero=".$offre_numero);
+ 			
+
+ 		}
+ 	}
+ ?>
+
+<!-- Tableau des offres non validées qu'on va chercher sur la BDD-->
   <table class="table table-hover table-bordered">
 	<thead>
 		<tr>
@@ -10,6 +36,8 @@
 			<th>Nombre de personnes</th>
 			<th>Motif de recours</th>
 			<th>Entreprise</th>
+			<th>Valider l'offre</th>
+			<th>Supprimer l'offre</th>
 
 		</tr>
 	</thead>
@@ -20,7 +48,7 @@
 		$off->setFetchMode(PDO::FETCH_OBJ);
 		while($offre = $off->fetch())
 		{
-			if($offre->off_valid==1){
+			if($offre->off_valid!=1){
 	?>
 			<tr>
 				<td><?php echo $offre->off_libelle; ?></td>
@@ -37,6 +65,7 @@
 					}
 				}
 
+				//Requêtes allant chercher les valeurs dans la BDD
 				$types=$connexion->query("SELECT * FROM TYPE_OFFRE ORDER BY type_code");
 				$types->setFetchMode(PDO::FETCH_OBJ);
 				while($type =$types->fetch())
@@ -68,17 +97,31 @@
 
 				$ent=$connexion->query("SELECT * FROM ENTREPRISE ORDER BY ent_raisonsociale ASC");
 				$ent->setFetchMode(PDO::FETCH_OBJ);
+				$lemail="";
 				while($entreprise=$ent->fetch())
 				{
 					if($entreprise->ent_id==$offre->off_entreprise)
 					{
 	?>
 				<td><?php echo $entreprise->ent_raisonsociale; ?></td> 
-	<?php
+	<?php 			$lemail=$entreprise->ent_mail;
 					}
 				}
 	?>
+				<!-- Bouton permettant de valider une offre en se servant de la fonction Validation -->
+				<td>
+					<form id='valid' method="post" action="desk.php?p=validoffre&v=<?php echo $offre->off_numero;?>&s=0&e=0">
+						<button type="submit" class="btn btn-success">Valider</button>
+					</form>
+				</td>
 
+				<!-- Bouton de suppression de l'offre-->
+				<td>
+					<form id='sup' method="post" action="desk.php?p=validoffre&v=0&s=<?php echo $offre->off_numero;?>&e=<?php echo $offre->off_entreprise;?>">
+						<button type="submit" class="btn btn-warning">Supprimer</button>
+						<a href="mailto:<?php echo $lemail;?>?Subject=Informations%20Incomplètes">Envoyer un mail</a>
+					</form>
+				</td>
 			</tr>
 	<?php
 			}
@@ -86,3 +129,29 @@
 	?>
 	</tbody>
   </table>
+
+<!-- Appel de la fonction Validation ou de la fonction Suppression  -->
+ <?php
+ 	$mail="";
+
+ 	if(isset($_GET['v']))
+ 	{
+ 		Validation($_GET['v']);
+ 	}
+
+ 	if(isset($_GET['s']) && isset($_GET['e']))
+ 	{
+ 		$Lesentreprises= $connexion->query("SELECT * FROM ENTREPRISE");
+ 		$Lesentreprises->setFetchMode(PDO::FETCH_OBJ);
+ 		while($ent=$Lesentreprises->fetch())
+ 		{
+ 			if ($_GET['e']==$ent->ent_id) 
+ 			{
+ 				$mail=$ent->ent_mail;
+ 			}
+ 		}
+
+ 		Suppression($_GET['s'],$mail);
+ 	}
+
+ ?>

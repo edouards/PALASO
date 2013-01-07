@@ -11,5 +11,5 @@
 <?php
 	include("loginEmploye.php");
 ?>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="jquery/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>

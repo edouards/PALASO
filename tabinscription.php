@@ -1,3 +1,28 @@
+  <!-- Fonctions de validation et de suppression des inscriptions-->
+ <?php
+ 	
+ 	function Validation($int_id)
+ 	{
+ 		if(isset($int_id))
+ 		{
+	 		include("connexion.php");
+	 		$connexion->exec("UPDATE INTERIMAIRE SET int_valid=1 WHERE int_id=".$int_id);
+ 		}
+ 	}
+
+ 	function Suppression($int_id)
+ 	{
+ 		if(isset($int_id))
+ 		{
+ 			include("connexion.php");
+ 			$connexion->exec("DELETE FROM INTERIMAIRE WHERE int_id=".$int_id);
+ 			
+
+ 		}
+ 	}
+ ?>
+
+
   <table class="table table-hover table-bordered">
 	<thead>
 		<tr>
@@ -10,6 +35,8 @@
 			<th>Mobile</th>
 			<th>E-mail</th>
 			<th>Métier</th>
+			<th>Valider l'inscription</th>
+			<th>Supprimer l'inscription</th>
 			
 
 		</tr>
@@ -21,7 +48,7 @@
 		$interim->setFetchMode(PDO::FETCH_OBJ);
 		while($interimaire = $interim->fetch())
 		{
-			if($interimaire->int_valid==1){
+			if($interimaire->int_valid!=1){
 	?>
 			<tr>
 				<td><?php   
@@ -54,13 +81,42 @@
 						}
 					}
 				?>
+				<!-- Bouton permettant de valider une inscription en se servant de la fonction Validation -->
+				<td>
+					<form id='valid' method="post" action="desk.php?p=signin&v=<?php echo $interimaire->int_id;?>&s=0">
+						<button type="submit" class="btn btn-success">Valider</button>
+					</form>
+				</td>
+
+				<!-- Bouton de suppression de l'inscription -->
+				<td>
+					<form id='sup' method="post" action="desk.php?p=signin&v=0&s=<?php echo $interimaire->int_id;?>">
+						<button type="submit" class="btn btn-warning">Supprimer</button>
+						<a href="mailto:<?php echo $interimaire->int_mail;?>?Subject=Informations%20Incomplètes">Envoyer un mail</a>
+					</form>
+				</td>
 				
 			</tr>
 	<?php
 			}
 		}
-		$met->closeCursor();
-		$interim->closeCursor();
 	?>
 	</tbody>
   </table>
+
+
+  <!-- Appel de la fonction Validation ou de la fonction Suppression  -->
+ <?php
+ 	$mail="";
+
+ 	if(isset($_GET['v']))
+ 	{
+ 		Validation($_GET['v']);
+ 	}
+
+ 	if(isset($_GET['s']))
+ 	{
+ 		Suppression($_GET['s']);
+ 	}
+
+ ?>

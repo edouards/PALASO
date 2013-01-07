@@ -2,7 +2,7 @@
 
 
 
-<div class="container offset3">
+<div class="span12 offset3">
 	<div class="navlist">
 		<ul class="nav nav-pills">
 		<li><a href="main.php">Accueil</a></li>
@@ -12,5 +12,5 @@
 	</div>
 </div>
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="jquery/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
