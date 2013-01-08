@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 07 Janvier 2013 à 11:45
+-- Généré le: Mar 08 Janvier 2013 à 18:23
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.3.13
 
@@ -132,6 +132,7 @@ CREATE TABLE IF NOT EXISTS `documents` (
   `doc_id` int(11) NOT NULL AUTO_INCREMENT,
   `doc_code` varchar(5) NOT NULL,
   `doc_libelle` varchar(65) NOT NULL,
+  `doc_chemin` text,
   PRIMARY KEY (`doc_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
@@ -139,10 +140,10 @@ CREATE TABLE IF NOT EXISTS `documents` (
 -- Contenu de la table `documents`
 --
 
-INSERT INTO `documents` (`doc_id`, `doc_code`, `doc_libelle`) VALUES
-(1, 'CV', 'Curriculum Vitae'),
-(2, 'Doc2', 'Document 2'),
-(3, 'Doc3', 'Document 3');
+INSERT INTO `documents` (`doc_id`, `doc_code`, `doc_libelle`, `doc_chemin`) VALUES
+(1, 'CV', 'Curriculum Vitae', 'Documents/DUPOND/modele_cv.jpg'),
+(2, 'ID', 'Carte d''identite', 'Documents/DUPOND/id-card.jpg'),
+(3, 'Doc3', 'Document 3', NULL);
 
 -- --------------------------------------------------------
 
@@ -157,16 +158,18 @@ CREATE TABLE IF NOT EXISTS `dossier` (
   `dos_interimaire` int(11) NOT NULL,
   `dos_document` int(11) NOT NULL,
   PRIMARY KEY (`dos_id`),
+  UNIQUE KEY `dos_id` (`dos_id`),
   KEY `FK_DOS_INT` (`dos_interimaire`),
   KEY `FK_DOS_DOC` (`dos_document`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `dossier`
 --
 
 INSERT INTO `dossier` (`dos_id`, `dos_date`, `dos_chemin`, `dos_interimaire`, `dos_document`) VALUES
-(1, '2012-12-01', 'link', 1, 1);
+(1, '2012-12-01', 'Documents/DUPOND', 1, 1),
+(2, '2012-12-01', 'Documents/DUPOND', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -301,15 +304,15 @@ CREATE TABLE IF NOT EXISTS `interimaire` (
   KEY `FK_INTERMETIER` (`int_metier`),
   KEY `FK_CIV_INTERIMAIRE` (`int_civilite`),
   KEY `FK_LOG_INT` (`int_login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `interimaire`
 --
 
 INSERT INTO `interimaire` (`int_id`, `int_ss`, `int_nom`, `int_prenom`, `int_adr1`, `int_adr2`, `int_cp`, `int_ville`, `int_telephone`, `int_mobile`, `int_mail`, `int_metier`, `int_civilite`, `int_login`, `int_valid`, `int_picture`) VALUES
-(1, '112233445566771', 'DUPOND', 'Alex', '1 rue Ok', 'Apt B', '33000', 'Bordeaux', '0532346564', '', 'a.dupond@test.fr', 1, 3, 5, 1, NULL),
-(2, '221133445566772', 'VIAUD', 'Alice', '5 rue No', '', '33000', 'Pessac', '0514748798', '0612546563', 'a.viaud@lol.com', 3, 1, 6, NULL, 'Phototech/Alice.jpg');
+(1, '112233445566771', 'DUPOND', 'Alex', '4 rue Yes', 'Appt B', '33000', 'Bordeaux', '0532346564', '', 'a.dupond@test.fr', 1, 3, 5, 1, NULL),
+(2, '221133445566772', 'VIAUD', 'Alice', '5 rue No', '', '33000', 'Pessac', '0514748798', '0612546563', 'a.viaud@lol.com', 3, 1, 6, 1, 'Phototech/Alice.jpg');
 
 -- --------------------------------------------------------
 
@@ -413,7 +416,7 @@ CREATE TABLE IF NOT EXISTS `offre` (
 --
 
 INSERT INTO `offre` (`off_numero`, `off_libelle`, `off_dateDebutPrevisionnel`, `off_dateFinPrevisionnel`, `off_periodeEssaiJours`, `off_nombrePersonnes`, `off_motif`, `off_type`, `off_employe`, `off_entreprise`, `off_metier`, `off_valid`) VALUES
-(1, 'Offre 1', '2012-12-01', '2013-02-01', 3, 1, 1, 1, 2, 1, 1, 0),
+(1, 'Offre 1', '2012-12-01', '2013-02-01', 3, 1, 1, 1, 2, 1, 1, 1),
 (2, 'Offre 2', '2012-12-15', '0000-00-00', 3, 1, 2, 2, 3, 2, 2, 0);
 
 -- --------------------------------------------------------
