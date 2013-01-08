@@ -10,6 +10,7 @@
 			<th>Mobile</th>
 			<th>E-mail</th>
 			<th>Métier</th>
+			<th>Documents</th>
 			
 
 		</tr>
@@ -54,6 +55,7 @@
 						}
 					}
 				?>
+				<td><a href="desk.php?p=docs&i=<?php echo $interimaire->int_id;?>">voir les documents</a></td>
 				
 			</tr>
 	<?php

@@ -1,7 +1,7 @@
 <div class="span12 offset1">
 	<?php
 	//Tableau contenant les valeurs possibles du paramètre p
-	$mespages=array("interim","entreprises","offres","validoffre","signin");
+	$mespages=array("interim","entreprises","offres","validoffre","signin","docs");
 
 	//Boucle de parcours du tableau
 	foreach ($mespages as $value)
@@ -13,7 +13,7 @@
 				case 'interim':
 				?>
 				<!-- Affiche la position de l'enployé dans les pages-->
-				<ul class="breadcrumb">
+				<ul class="breadcrumb span12">
   					<li>Récapitulatif <span class="divider">/</span></li>
   					<li class="active">Les Intérimaires </li>
 				</ul>
@@ -23,7 +23,7 @@
 				case 'entreprises':
 				?>
 				<!-- Affiche la position de l'enployé dans les pages-->
-				<ul class="breadcrumb">
+				<ul class="breadcrumb span12">
   					<li>Récapitulatif <span class="divider">/</span></li>
   					<li class="active">Les Entreprises </li>
 				</ul>
@@ -33,7 +33,7 @@
 				case 'offres':
 				?>
 				<!-- Affiche la position de l'enployé dans les pages-->
-				<ul class="breadcrumb">
+				<ul class="breadcrumb span12">
   					<li>Récapitulatif <span class="divider">/</span></li>
   					<li class="active">Les Offres </li>
 				</ul>
@@ -43,7 +43,7 @@
 				case 'validoffre':
 				?>
 				<!-- Affiche la position de l'enployé dans les pages-->
-				<ul class="breadcrumb">
+				<ul class="breadcrumb span12">
   					<li>A valider <span class="divider">/</span></li>
   					<li class="active">Les Offres </li>
 				</ul>
@@ -53,13 +53,25 @@
 				case 'signin':
 				?>
 				<!-- Affiche la position de l'enployé dans les pages-->
-				<ul class="breadcrumb">
+				<ul class="breadcrumb span12">
   					<li>A valider <span class="divider">/</span></li>
   					<li class="active">Les Inscriptions </li>
 				</ul>
 				<?php
 					include("tabinscription.php");
 					break;
+				case 'docs':
+				?>
+				<!-- Affiche la position de l'employé dans les pages-->
+				<ul class="breadcrumb span12">
+					<li>Récapitulatif<span class="divider">/</span></li>
+					<li>Les Intérimaires<span class="divider">/</span></li>
+					<li class="active">Documents</li>
+				</ul>
+				<?php
+					include("documents.php");
+					break;
+
 			}
 		}
 	}

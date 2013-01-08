@@ -10,7 +10,11 @@
 			
 			<li class="nav-header">A valider</li>
 			<li><a href="desk.php?p=validoffre&v=0&s=0">Offres</a></li>
-			<li><a href="desk.php?p=signin&v=0&s=0">Inscriptions</a></li>			 
+			<li><a href="desk.php?p=signin&v=0&s=0">Inscriptions</a></li>		
+
+			<li class="nav-header">Employés<li>
+			<li><a href="#">Les employés</a></li>
+			<li><a href="#">En développement</a></li>
 		</ul>
 	</div>
 </div>
